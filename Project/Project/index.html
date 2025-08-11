@@ -22,7 +22,7 @@
     }
     .logo {
       font-family: 'Dancing Script', cursive, sans-serif;
-      font-size: 2.8em;
+      font-size: clamp(1.5em, 5vw, 2.8em);
       font-weight: 700;
       color: #2196f3;
       display: flex;
@@ -34,7 +34,6 @@
       box-shadow: none;
       margin-bottom: 0;
     }
-
     .cta-heart {
       display: inline-flex;
       align-items: center;
@@ -92,23 +91,25 @@
       color: #ffb6d5 !important;
     }
     .hero {
-      position: relative;
-      max-width: 900px;
-      margin: 120px auto 0 auto;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(33,150,243,0.12);
-      text-align: center;
-      background: rgba(0,0,0,0.35);
-      min-height: 240px;
+  position: relative;
+  max-width: 900px;
+  margin: 120px auto 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(33,150,243,0.12);
+  text-align: center;
+  background: rgba(0,0,0,0.35);
+  /* Remove min-height: 240px; */
+  padding: 0; /* Optional: add padding if you want space around the image */
     }
-    .hero img {
-      width: 100%;
-      max-height: 220px;
-      object-fit: cover;
-      filter: brightness(0.96) contrast(1.08);
-      display: block;
-    }
+   .hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.96) contrast(1.08);
+  display: block;
+} 
+    
     .vignette {
       pointer-events: none;
       position: absolute;
@@ -122,7 +123,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: 'Luckiest Guy', cursive, sans-serif;
-      font-size: 4em;
+      font-size: clamp(2em, 7vw, 4em);
       font-weight: bold;
       letter-spacing: 2px;
       color: #2196f3;
@@ -134,23 +135,25 @@
       line-height: 1.1;
       pointer-events: none;
     }
-    /* NEW: Main subtitle in pink script, below hero */
     .main-subtitle-script {
       text-align: center;
       font-family: 'Dancing Script', cursive, sans-serif;
-      color: #ffb6d5;         /* pink */
-      font-size: 2.8em;
+      color: #ffb6d5;
+      font-size: clamp(1.2em, 4vw, 2.8em);
       font-weight: 700;
       margin: 32px 0 18px 0;
       letter-spacing: 1px;
-     }
+    }
     .card-title {
       font-family: 'Dancing Script', cursive, sans-serif !important;
       color: #2196f3 !important;
       text-align: center;
-      font-size: 2em;
+      font-size: clamp(1.2em, 4vw, 2em);
       margin-bottom: 18px;
       margin-top: 0;
+    }
+    .card-text {
+      font-size: clamp(1em, 2.5vw, 1.1em);
     }
     .card {
       background: rgba(0,0,0,0.45);
@@ -200,9 +203,6 @@
     }
     @media (max-width: 900px) {
       .hero, .card, footer { max-width: 98vw; }
-      .three-d-text { font-size: 2em; }
-      .logo { font-size: 1.2em; }
-      .main-subtitle-script { font-size: 1.5em; }
     }
     @media (max-width: 700px) {
       .card, footer { max-width: 98vw; }
@@ -218,17 +218,22 @@
         <span style="color:#2196f3;">Marie</span>
         <span>🤍</span>
       </div>
-      <div class="navbar-nav flex-row flex-wrap ms-auto">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="skills.html">Skills</a>
-        <a class="nav-link" href="interests.html">Interests</a>
-        <a class="nav-link" href="contact.html">Contact</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="navbar-nav flex-row flex-wrap ms-auto">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="skills.html">Skills</a>
+          <a class="nav-link" href="interests.html">Interests</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
       </div>
     </div>
   </nav>
   <div class="hero">
-    <img src="assets/images/newretroimage.gif" alt="Big Top Image">
+    <img src="assets/images/MainImage.jpg" alt="Big Top Image" class="img-fluid">
     <div class="vignette"></div>
     <div class="three-d-text">
       Portfolio<br>2025
@@ -236,9 +241,8 @@
   </div>
 
   <!-- Heart-shaped call-to-action button below hero -->
-  <div style="text-align:center; margin-bottom: 18px;">
+  <div class="text-center mb-3">
     <a href="mailto:nicolebarbertowebdesign@gmail.com" class="cta-heart" title="Email Nicole">
-  <!-- SVG and other content -->
       <span class="visually-hidden">Email Nicole</span>
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;">
         <path d="M32 58s-22-13.6-22-30A13.94 13.94 0 0 1 24 14a13.94 13.94 0 0 1 8 2.7A13.94 13.94 0 0 1 40 14a13.94 13.94 0 0 1 14 14c0 16.4-22 30-22 30z" fill="#ffb6d5" stroke="#2196f3" stroke-width="2"/>
@@ -276,7 +280,7 @@
         <div class="card text-white h-100 shadow">
           <div class="card-body">
             <h2 class="card-title">About Me</h2>
-            <p class="card-text" style="text-align:center; max-width:600px; margin:24px auto 0 auto; color:#fff; font-size:1.1em;">
+            <p class="card-text text-center" style="max-width:600px; margin:24px auto 0 auto;">
               Hi! I'm Nicole Marie, a creative designer &amp; developer passionate about building beautiful, user-friendly digital experiences. I love blending art and code to make the web more fun!
             </p>
           </div>

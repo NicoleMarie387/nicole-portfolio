@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Interests - Nicole Marie</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Montserrat:300,400,600|Dancing+Script:400,700" />
-    
     <style>
         body {
             border: 8px solid #f5f1f3;
             box-sizing: border-box;
             padding: 24px;
-                background-image:
+            background-image:
                 linear-gradient(135deg, #0b0a0a88 0%, #fff0 100%),
                 url('assets/images/shinybackground.jpg');
             background-size: cover;
@@ -20,59 +19,95 @@
             background-position: center;
             min-height: 100vh;
         }
-        
-        nav {
-            display: flex;
-            justify-content: space-evenly;
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        
-        nav a {
-            color: #2196f3 !important;
-            text-decoration: none !important;
-            font-weight: bold !important;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        nav a:hover {
-            background: rgba(33,150,243,0.12);
-            color: #ffb6d5 !important;
-        }
-        
-        .contact-box {
-            box-shadow: 0 8px 24px rgba(236,43,110,0.2);
-            transition: box-shadow 0.3s;
-            margin: 40px auto;
-            width: 70%;
-            background: rgba(0,0,0,0.5);
-            padding: 30px;
-            border-radius: 12px;
-            color: #fff;
-            text-align: center;
-        }
-
         .navbar {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
             margin-bottom: 30px;
+            padding: 10px 20px;
         }
-
         .logo {
             font-family: 'Dancing Script', cursive, sans-serif;
-            font-size: 1.8em;
+            font-size: clamp(1.5em, 5vw, 2.8em);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1.5px;
+            background: none;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+        .logo span:first-child { color: #ffb6d5; }
+        .logo span:nth-child(2) { color: #2196f3; margin-left:8px; }
+        .logo span:last-child { color: #fff; margin-left:10px; }
+        .navbar-nav .nav-link {
+            color: #2196f3 !important;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+            margin: 0 6px;
+        }
+        .navbar-nav .nav-link:hover {
+            background: rgba(255,182,213,0.15);
+            color: #ffb6d5 !important;
+        }
+        .main-title {
+            color: #ffb6d5;
+            font-family: 'Dancing Script', cursive, sans-serif;
+            font-size: clamp(2em, 6vw, 3em);
             font-weight: 700;
             letter-spacing: 1.5px;
-            color: #ffb6d5;
+            text-align: center;
+            margin-bottom: 30px;
         }
-
-        .logo span:nth-child(2) {
-            color: #2196f3;
+        .cta-heart {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: linear-gradient(135deg, #ffb6d5 80%, #fff0 100%);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            outline: none;
+            box-shadow: 0 4px 24px #ffb6d5cc;
+            border-radius: 50%;
+            padding: 18px;
+            margin-top: 1.2em;
+            margin-bottom: 0.5em;
+            min-width: 110px;
+            min-height: 110px;
+            position: relative;
         }
-        
+        .cta-heart:hover, .cta-heart:focus {
+            transform: scale(1.08) rotate(-6deg);
+            box-shadow: 0 8px 32px #ffb6d5ee;
+            background: linear-gradient(135deg, #ffb6d5 90%, #2196f3 100%);
+        }
+        .cta-heart svg {
+            display: block;
+            width: 72px;
+            height: 72px;
+        }
+        .cta-heart:active {
+            transform: scale(0.98);
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+        .interests-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0 0 0;
+        }
         .interest-section {
             padding: 18px 14px 12px 14px;
             border-radius: 16px;
@@ -87,7 +122,6 @@
         .interest-section:not(:last-child) {
             margin-bottom: 18px;
         }
-        /* Remove old divider style */
         .interest-section ul li {
             display: flex;
             align-items: center;
@@ -138,7 +172,7 @@
         .interest-section h2 {
             color: #ffb6d5;
             font-family: 'Dancing Script', cursive, sans-serif;
-            font-size:2em;
+            font-size: clamp(1.3em, 4vw, 2em);
             font-weight:700;
             letter-spacing:1px;
             margin-top: 0;
@@ -159,18 +193,35 @@
             padding: 0;
             margin-bottom: 0;
         }
-        /* Removed duplicate rule that overrode white text */
+        footer {
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 100px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+        }
+        @media (max-width: 900px) {
+            .interests-container, footer { max-width: 98vw; }
+        }
+        @media (max-width: 700px) {
+            .interest-section, .interests-container, footer { max-width: 98vw; }
+            .interest-section { padding: 12px 4px; }
+        }
     </style>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid d-flex justify-content-between align-items-center">
-        <div class="logo" style="font-family: 'Dancing Script', cursive, sans-serif; font-size: 2.8em; font-weight: 700; display: flex; align-items: center; letter-spacing: 1.5px; background: none; border-radius: 0; padding: 0; box-shadow: none; margin-bottom: 0;">
-          <span style="color:#ffb6d5;">Nicole</span>
-          <span style="color:#2196f3;">Marie</span>
-          <span style="color:#fff;">🤍</span>
+        <div class="logo">
+          <span>Nicole</span>
+          <span>Marie</span>
+          <span>🤍</span>
         </div>
         <div class="navbar-nav flex-row flex-wrap ms-auto">
           <a class="nav-link" href="index.html">Home</a>
@@ -183,10 +234,10 @@
     </nav>
 
     <!-- Interests Page Content -->
-    <div style="max-width: 1000px; margin: 0 auto; padding: 40px;">
-        <h1 style="color: #ffb6d5; font-family: 'Dancing Script', cursive, sans-serif; font-size: 3em; font-weight: 700; letter-spacing: 1.5px; text-align: center; margin-bottom: 30px;">My Interests & Passions</h1>
-        <div style="text-align:center; margin-bottom: 18px;">
-          <a href="mailto:nicolebarbertowebdesign@gmail.com" class="cta-heart" title="Email Nicole" style="display: inline-flex; align-items: center; justify-content: center; border: none; background: linear-gradient(135deg, #ffb6d5 80%, #fff0 100%); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; outline: none; box-shadow: 0 4px 24px #ffb6d5cc; border-radius: 50%; padding: 18px; margin-top: 1.2em; margin-bottom: 0.5em; min-width: 110px; min-height: 110px; position: relative;">
+    <div class="interests-container">
+        <h1 class="main-title">My Interests & Passions</h1>
+        <div class="text-center mb-4">
+          <a href="mailto:nicolebarbertowebdesign@gmail.com" class="cta-heart" title="Email Nicole">
             <span class="visually-hidden">Email Nicole</span>
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle; width:72px; height:72px;">
               <path d="M32 58s-22-13.6-22-30A13.94 13.94 0 0 1 24 14a13.94 13.94 0 0 1 8 2.7A13.94 13.94 0 0 1 40 14a13.94 13.94 0 0 1 14 14c0 16.4-22 30-22 30z" fill="#ffb6d5" stroke="#2196f3" stroke-width="2"/>
@@ -195,66 +246,64 @@
             <span style="position: absolute; left: 50%; top: 100%; transform: translate(-50%, 10px); color: #2196f3; font-family: 'Montserrat', sans-serif; font-size: 1.1em; font-weight: 600; letter-spacing: 0.5px; background: #fff; border-radius: 8px; padding: 4px 16px; margin-top: 8px; box-shadow: 0 2px 8px #ffb6d555; z-index: 2; white-space: nowrap;">Email Me</span>
           </a>
         </div>
-        
-        <div style="display: grid; grid-template-columns: 1fr; gap: 36px;">
-            
-            <!-- Creative Interests -->
-            <div class="interest-section">
-                <h2>🎨 Creative Pursuits</h2>
-                <div class="interest-accent-bar"></div>
-                <ul>
-                    <li><span class="interest-icon">🎭</span>Graphic design and digital art creation</li>
-                    <li><span class="interest-icon">📸</span>Photography and visual storytelling</li>
-                    <li><span class="interest-icon">🌈</span>Color theory</li>
-                    <li><span class="interest-icon">✨</span>UI/UX design experimentation</li>
-                </ul>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="interest-section">
+                    <h2>🎨 Creative Pursuits</h2>
+                    <div class="interest-accent-bar"></div>
+                    <ul>
+                        <li><span class="interest-icon">🎭</span>Graphic design and digital art creation</li>
+                        <li><span class="interest-icon">📸</span>Photography and visual storytelling</li>
+                        <li><span class="interest-icon">🌈</span>Color theory</li>
+                        <li><span class="interest-icon">✨</span>UI/UX design experimentation</li>
+                    </ul>
+                </div>
             </div>
             <div class="section-heart-divider">♥</div>
-
-            <!-- Technology Interests -->
-            <div class="interest-section">
-                <h2>💻 Technology & Learning</h2>
-                <div class="interest-accent-bar"></div>
-                <ul>
-                    <li><span class="interest-icon">🌐</span>Following latest web design trends</li>
-                    <li><span class="interest-icon">🤖</span>AI tools and automation</li>
-                    <li><span class="interest-icon">📱</span>Mobile app design concepts</li>
-                </ul>
+            <div class="col-12">
+                <div class="interest-section">
+                    <h2>💻 Technology & Learning</h2>
+                    <div class="interest-accent-bar"></div>
+                    <ul>
+                        <li><span class="interest-icon">🌐</span>Following latest web design trends</li>
+                        <li><span class="interest-icon">🤖</span>AI tools and automation</li>
+                        <li><span class="interest-icon">📱</span>Mobile app design concepts</li>
+                    </ul>
+                </div>
             </div>
             <div class="section-heart-divider">♥</div>
-
-            <!-- Personal Interests -->
-            <div class="interest-section">
-                <h2>🌟 Personal Passions</h2>
-                <div class="interest-accent-bar"></div>
-                <ul>
-                    <li><span class="interest-icon">🐕</span>Volunteering at local animal rescue</li>
-                    <li><span class="interest-icon">🏊‍♀️</span>Swimming and outdoor activities</li>
-                    <li><span class="interest-icon">🎵</span>Music and creative inspiration</li>
-                    
-                </ul>
+            <div class="col-12">
+                <div class="interest-section">
+                    <h2>🌟 Personal Passions</h2>
+                    <div class="interest-accent-bar"></div>
+                    <ul>
+                        <li><span class="interest-icon">🐕</span>Volunteering at local animal rescue</li>
+                        <li><span class="interest-icon">🏊‍♀️</span>Swimming and outdoor activities</li>
+                        <li><span class="interest-icon">🎵</span>Music and creative inspiration</li>
+                    </ul>
+                </div>
             </div>
             <div class="section-heart-divider">♥</div>
-
-            <!-- Hobbies -->
-            <div class="interest-section">
-                <h2>🎯 Fun Activities</h2>
-                <div class="interest-accent-bar"></div>
-                <ul>
-                    <li><span class="interest-icon">🎮</span>Interactive web animations</li>
-                    <li><span class="interest-icon">📚</span>Reading design blogs and tutorials</li>
-                    <li><span class="interest-icon">💡</span>Brainstorming creative project ideas</li>
-                </ul>
+            <div class="col-12">
+                <div class="interest-section">
+                    <h2>🎯 Fun Activities</h2>
+                    <div class="interest-accent-bar"></div>
+                    <ul>
+                        <li><span class="interest-icon">🎮</span>Interactive web animations</li>
+                        <li><span class="interest-icon">📚</span>Reading design blogs and tutorials</li>
+                        <li><span class="interest-icon">💡</span>Brainstorming creative project ideas</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer>
-  <div style="border-top: 1px solid #ffb6d5; padding-top: 20px;">
-    <p style="margin: 0; color:#ffb6d5;">© 2025 Nicole's Portfolio | Made with 💖 and lots of ☕</p>
-    <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #ccc;">Designed & Built with HTML &amp; CSS</p>
-  </div>
-</footer>
+      <div style="border-top: 1px solid #ffb6d5; padding-top: 20px;">
+        <p style="margin: 0; color:#ffb6d5;">© 2025 Nicole's Portfolio | Made with 💖 and lots of ☕</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #ccc;">Designed & Built with HTML &amp; CSS</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
