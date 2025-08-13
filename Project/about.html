@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Nicole Marie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Montserrat:300,400,600|Dancing+Script:400,700" />
+    <style>
+        body {
+            border: 8px solid #f5f1f3;
+            box-sizing: border-box;
+            padding: 24px;
+            font-family: 'Montserrat', sans-serif;
+            background-image:
+                linear-gradient(135deg, #0b0a0a88 0%, #fff0 100%),
+                url('assets/images/shinybackground.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(0,0,0,0.3);
+            padding: 10px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-family: 'Dancing Script', cursive, sans-serif;
+            font-size: clamp(1.5em, 5vw, 2.8em);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1.5px;
+            background: none;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+        .logo span:first-child { color: #ffb6d5; }
+        .logo span:nth-child(2) { color: #2196f3; margin-left:8px; }
+        .logo span:last-child { color: #fff; margin-left:10px; }
+        .navbar-nav .nav-link {
+            font-family: 'Dancing Script', cursive !important;
+            color: #2196f3 !important;
+            font-weight: 700;
+            font-size: 1.25em;
+            letter-spacing: 0.5px;
+            transition: color 0.2s, text-shadow 0.2s;
+            padding: 0 18px !important;
+            margin: 0 2px;
+            background: none !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+        }
+        .navbar-nav .nav-link.active, 
+        .navbar-nav .nav-link:focus, 
+        .navbar-nav .nav-link:hover {
+            color: #ffb6d5 !important;
+            text-shadow: 0 0 8px #ffb6d5, 0 0 16px #ffb6d5;
+            text-decoration: none !important;
+        }
+        .cta-heart {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: linear-gradient(135deg, #ffb6d5 80%, #fff0 100%);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            outline: none;
+            box-shadow: 0 4px 24px #ffb6d5cc;
+            border-radius: 50%;
+            padding: 10px;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            min-width: 70px;
+            min-height: 70px;
+            position: relative;
+        }
+        .cta-heart:hover, .cta-heart:focus {
+            transform: scale(1.08) rotate(-6deg);
+            box-shadow: 0 8px 32px #ffb6d5ee;
+            background: linear-gradient(135deg, #ffb6d5 90%, #2196f3 100%);
+        }
+        .cta-heart svg {
+            display: block;
+            width: 44px;
+            height: 44px;
+        }
+        .cta-heart:active {
+            transform: scale(0.98);
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+        .about-profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #ffb6d5;
+            object-fit: cover;
+            box-shadow: 0 2px 16px #ffb6d555;
+            transition: box-shadow 0.3s, transform 0.3s;
+            margin-bottom: 16px;
+            margin-right: 0;
+            margin-left: 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-profile-img:hover {
+            box-shadow: 0 4px 32px #ffb6d5cc, 0 0 0 8px #ffb6d533;
+            transform: scale(1.04) rotate(-2deg);
+            z-index: 2;
+        }
+        .about-section-icon {
+            font-size: 1.1em;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .about-card {
+            background: rgba(0,0,0,0.55);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #ffb6d555;
+            border: none;
+            margin-bottom: 22px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .about-card .card-body {
+            padding: 1.1rem 1.3rem;
+        }
+        .about-heading {
+            color: #ffb6d5;
+            font-family: 'Dancing Script', cursive, sans-serif;
+            font-size: 1.25em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 0.7em;
+        }
+        .about-paragraph {
+            font-size: 1em;
+            color: #fff;
+            margin-bottom: 1em;
+        }
+        footer {
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 100px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+        }
+        @media (max-width: 900px) {
+            .about-card, footer { max-width: 98vw; }
+        }
+        @media (max-width: 700px) {
+            .about-card, footer { max-width: 98vw; }
+            .about-profile-img { width: 100px; height: 100px; }
+        }
+        @media (max-width: 700px) {
+            .about-heading {
+            font-size: 1.35em;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="logo">
+          <span>Nicole</span>
+          <span>Marie</span>
+          <span>🤍</span>
+        </div>
+        <div class="navbar-nav flex-row flex-wrap ms-auto">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="skills.html">Skills</a>
+          <a class="nav-link" href="interests.html">Interests</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Heart Email Button -->
+    <div class="text-center mb-4">
+      <a href="mailto:nicolebarbertowebdesign@gmail.com" class="cta-heart" title="Email Nicole">
+        <span class="visually-hidden">Email Nicole</span>
+        <svg viewBox="0 0 64 64" fill="none" style="vertical-align:middle; width:44px; height:44px;">
+          <path d="M32 58s-22-13.6-22-30A13.94 13.94 0 0 1 24 14a13.94 13.94 0 0 1 8 2.7A13.94 13.94 0 0 1 40 14a13.94 13.94 0 0 1 14 14c0 16.4-22 30-22 30z" fill="#ffb6d5" stroke="#2196f3" stroke-width="2"/>
+          <rect x="22" y="28" width="20" height="12" rx="4" fill="#fff"/>
+          <path d="M24 30l8 6 8-6" stroke="#ffb6d5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span style="
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          transform: translate(-50%, 10px);
+          color: #2196f3;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.95em;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          background: #fff;
+          border-radius: 8px;
+          padding: 2px 10px;
+          margin-top: 8px;
+          box-shadow: 0 2px 8px #ffb6d555;
+          z-index: 2;
+          white-space: nowrap;
+        ">Email Me</span>
+      </a>
+    </div>
+
+    <!-- About Content -->
+    <div class="container" style="max-width: 700px; margin: 0 auto;">
+      <div class="text-center" style="margin-bottom: 18px;">
+        <img src="assets/images/Snapchat-2044768955.jpg" alt="Nicole Marie" class="about-profile-img img-fluid">
+      </div>
+      <div class="about-card card">
+        <div class="card-body">
+          <h2 class="about-heading">💇‍♀️ My Story</h2>
+          <p class="about-paragraph">I'm Nicole Marie, and my journey into design has been anything but ordinary! With over 15 years as a cosmetologist and barber, I've always had a passion for creativity - whether I'm creating the perfect hairstyle or now crafting beautiful websites. My real design awakening came in 2008 when I launched my own online dog boutique.</p>
+        </div>
+      </div>
+      <div class="about-card card">
+        <div class="card-body">
+          <h2 class="about-heading">✂️ From Salon to Screen</h2>
+          <p class="about-paragraph">Running my online dog boutique opened my eyes to the power of web design. I became fascinated with how websites work and how great design can transform a business. Just like creating hairstyles, web development lets me bring creative visions to life - now I'm creating websites instead of hairstyles!</p>
+        </div>
+      </div>
+      <div class="about-card card">
+        <div class="card-body">
+          <h2 class="about-heading">🌱 Always Learning</h2>
+          <p class="about-paragraph">I'm a firm believer in lifelong learning. The tech and design world is always evolving, and so am I! I'm constantly exploring new tools, trends, and techniques to improve my craft and deliver the best for my clients.</p>
+        </div>
+      </div>
+      <div class="about-card card">
+        <div class="card-body">
+          <h2 class="about-heading">🐾 Beyond the Screen</h2>
+          <p class="about-paragraph">When I'm not designing or coding, you'll find me indulging my other passions - caring for my furry friends, exploring the great outdoors, or curled up with a good book. These moments of joy and relaxation fuel my creativity and inspire my work.</p>
+        </div>
+      </div>
+      <div class="about-card card">
+        <div class="card-body">
+          <h2 class="about-heading">📫 Let's Connect!</h2>
+          <p class="about-paragraph mb-0">I'm always excited to connect with like-minded individuals or potential clients. If you have a project in mind, or just want to chat about design, feel free to <a href="contact.html" style="color: #2196f3; text-decoration: underline;">reach out</a>!</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div style="border-top: 1px solid #ffb6d5; padding-top: 20px;">
+        <p style="margin: 0; color:#ffb6d5;">© 2025 Nicole's Portfolio | Made with 💖 and lots of ☕</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #ccc;">Designed & Built with HTML &amp; CSS</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
