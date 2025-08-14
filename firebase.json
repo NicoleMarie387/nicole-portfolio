@@ -1,7 +1,7 @@
 
  {
   "hosting": {
-    "main": ".",
+    "public": "Portfolio.html",
     "ignore": [
       "firebase.json",
       "**/.*",
