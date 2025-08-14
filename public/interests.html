@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interests - Nicole Marie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Montserrat:300,400,600|Dancing+Script:400,700" />
+    <style>
+        body {
+            border: 8px solid #f5f1f3;
+            box-sizing: border-box;
+            padding: 24px;
+            background-image:
+                linear-gradient(135deg, #0b0a0a88 0%, #fff0 100%),
+                url('assets/images/shinybackground.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+        }
+        .logo {
+            font-family: 'Dancing Script', cursive, sans-serif;
+            font-size: clamp(1.5em, 5vw, 2.8em);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1.5px;
+            background: none;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+        .logo span:first-child { color: #ffb6d5; }
+        .logo span:nth-child(2) { color: #2196f3; margin-left:8px; }
+        .logo span:last-child { color: #fff; margin-left:10px; }
+        .navbar-nav .nav-link {
+            color: #2196f3 !important;
+            font-weight: bold;
+            font-size: 1.1em;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+            margin: 0 6px;
+        }
+        .navbar-nav .nav-link {
+         font-family: 'Dancing Script', cursive !important;
+         color: #2196f3 !important;
+         font-weight: 700;
+         font-size: 1.25em;
+        letter-spacing: 0.5px;
+        transition: color 0.2s, text-shadow 0.2s;
+        padding: 0 18px !important;
+        margin: 0 2px;
+         background: none !important;
+        text-decoration: none !important;
+        box-shadow: none !important;
+}
+      .navbar-nav .nav-link.active, 
+      .navbar-nav .nav-link:focus, 
+      .navbar-nav .nav-link:hover {
+  color: #ffb6d5 !important;
+  text-shadow: 0 0 8px #ffb6d5, 0 0 16px #ffb6d5;
+  text-decoration: none !important;
+}
+        .main-title {
+            color: #ffb6d5;
+            font-family: 'Dancing Script', cursive, sans-serif;
+            font-size: clamp(2em, 6vw, 3em);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .cta-heart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: linear-gradient(135deg, #ffb6d5 80%, #fff0 100%);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    outline: none;
+    box-shadow: 0 4px 24px #ffb6d5cc;
+    border-radius: 50%;
+    padding: 10px;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    min-width: 70px;
+    min-height: 70px;
+    position: relative;
+}
+        .cta-heart:hover, .cta-heart:focus {
+            transform: scale(1.08) rotate(-6deg);
+            box-shadow: 0 8px 32px #ffb6d5ee;
+            background: linear-gradient(135deg, #ffb6d5 90%, #2196f3 100%);
+        }
+        .cta-heart svg {
+            display: block;
+            width: 72px;
+            height: 72px;
+        }
+        .cta-heart:active {
+            transform: scale(0.98);
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+        .interests-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0 0 0;
+        }
+        .interest-section {
+            padding: 18px 14px 12px 14px;
+            border-radius: 16px;
+            margin-bottom: 0;
+            position: relative;
+            background: rgba(20, 20, 30, 0.82);
+            box-shadow: 0 4px 16px 0 #0006, 0 1.5px 8px 0 #ffb6d522;
+            color: #fff;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .interest-section:not(:last-child) {
+            margin-bottom: 18px;
+        }
+        .interest-section ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 4px 0;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 7px;
+            color: #fff;
+            font-size: 1em;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 1px 3px 0 #0002;
+            transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s, color 0.18s, background 0.18s;
+            cursor: pointer;
+        }
+        .interest-section ul li:hover {
+            color: #ffb6d5;
+            background: rgba(33,150,243,0.13);
+            transform: scale(1.03);
+            box-shadow: 0 2px 8px 0 #2196f344;
+        }
+        .section-heart-divider {
+            width: 100%;
+            text-align: center;
+            margin: 0 auto 36px auto;
+            font-size: 2.2em;
+            color: #ffb6d5;
+            letter-spacing: 2px;
+            user-select: none;
+            line-height: 1;
+            filter: drop-shadow(0 2px 8px #0005);
+            background: none;
+        }
+        .interest-icon {
+            font-size: 2em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.2em;
+            height: 2.2em;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffb6d5 40%, #2196f3 100%);
+            color: #fff;
+            margin-right: 10px;
+            box-shadow: 0 2px 8px #2196f355;
+            border: 2px solid #fff2;
+        }
+        .interest-section h2 {
+            color: #ffb6d5;
+            font-family: 'Dancing Script', cursive, sans-serif;
+            font-size: clamp(1.3em, 4vw, 2em);
+            font-weight:700;
+            letter-spacing:1px;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 8px #0006, 0 1px 0 #fff3;
+            position: relative;
+        }
+        .interest-accent-bar {
+            width: 60px;
+            height: 5px;
+            background: linear-gradient(90deg, #ffb6d5 0%, #2196f3 100%);
+            border-radius: 6px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px #0003;
+        }
+        .interest-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+        footer {
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 100px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+        }
+        @media (max-width: 900px) {
+            .interests-container, footer { max-width: 98vw; }
+        }
+        @media (max-width: 700px) {
+            .interest-section, .interests-container, footer { max-width: 98vw; }
+            .interest-section { padding: 12px 4px; }
+        }
+        .accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: transparent;
+}
+.accordion-item {
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 1.5rem;
+  border-radius: 18px !important;
+  overflow: hidden;
+}
+.accordion-button {
+  background: #000 !important;
+  color: #ffb6d5 !important;
+  border: none !important;
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.15em !important;
+  box-shadow: none !important;
+  border-radius: 18px !important;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  align-items: center;
+}
+.accordion-button:not(.collapsed) {
+  color: #ffb6d5 !important;
+  background: #111 !important;
+  box-shadow: 0 2px 12px #ffb6d555 !important;
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.15rem #ffb6d5 !important;
+}
+.accordion-body {
+  background: rgba(0,0,0,0.35);
+  border-radius: 0 0 18px 18px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+.accordion-button::after {
+  filter: invert(1) brightness(2);
+}
+.accordion {
+  box-shadow: 0 4px 32px 0 #ffb6d544;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="logo">
+          <span>Nicole</span>
+          <span>Marie</span>
+          <span>🤍</span>
+        </div>
+        <div class="navbar-nav flex-row flex-wrap ms-auto">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="skills.html">Skills</a>
+          <a class="nav-link" href="interests.html">Interests</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+   
+    <!-- Interests Page Content -->
+    <div class="interests-container">
+        <h1 class="main-title">My Interests & Passions</h1>
+      
+        <!-- Portfolio Screenshot Example -->
+<div class="container" style="max-width:700px; margin:40px auto 0 auto;">
+  <h2 style="color:#ffb6d5; font-family:'Dancing Script',cursive; font-size:1.5em; text-align:center; margin-bottom:18px;">
+    Sample Work Screenshot
+  </h2>
+  <div class="text-center my-4">
+    <a href="assets/images/portfolioimage.jpg" target="_blank" style="display:inline-block;">
+      <img src="assets/images/portfolioimage.jpg" alt="Screenshot of another site"
+        style="width:220px; height:120px; object-fit:cover; object-position:top; border-radius:16px; box-shadow:0 4px 24px #ffb6d555; margin-bottom:12px; display:inline-block; transition:box-shadow 0.2s, transform 0.2s; cursor:pointer;">
+    </a>
+    <br>
+    <a href="assets/images/portfolioimage.jpg" target="_blank" class="btn btn-primary"
+      style="background:#ffb6d5; border:none; color:#222; font-weight:600; border-radius:8px; margin-top:8px;">
+      View Full Image
+    </a>
+  </div>
+</div>
+      <div class="container" style="max-width: 700px; margin: 80px auto 0 auto;">
+  <div class="accordion" id="interestsAccordion" style="margin-bottom: 2.5rem;">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingCreative">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreative" aria-expanded="true" aria-controls="collapseCreative">
+          🎨 Creative Pursuits
+        </button>
+      </h2>
+      <div id="collapseCreative" class="accordion-collapse collapse show" aria-labelledby="headingCreative" data-bs-parent="#interestsAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Graphic design and digital art creation</li>
+            <li>Photography and visual storytelling</li>
+            <li>Color theory</li>
+            <li>UI/UX design experimentation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTech">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTech" aria-expanded="false" aria-controls="collapseTech">
+          💻 Technology & Learning
+        </button>
+      </h2>
+      <div id="collapseTech" class="accordion-collapse collapse" aria-labelledby="headingTech" data-bs-parent="#interestsAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Following latest web design trends</li>
+            <li>AI tools and automation</li>
+            <li>Mobile app design concepts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingPersonal">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePersonal" aria-expanded="false" aria-controls="collapsePersonal">
+          🌟 Personal Passions
+        </button>
+      </h2>
+      <div id="collapsePersonal" class="accordion-collapse collapse" aria-labelledby="headingPersonal" data-bs-parent="#interestsAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Volunteering at local animal rescue</li>
+            <li>Swimming and outdoor activities</li>
+            <li>Music and creative inspiration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFun">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFun" aria-expanded="false" aria-controls="collapseFun">
+        🎯 Fun Activities
+        </button>
+      </h2>
+      <div id="collapseFun" class="accordion-collapse collapse" aria-labelledby="headingFun" data-bs-parent="#interestsAccordion">
+        <div class="accordion-body">
+          <ul>
+            <li>Interactive web animations</li>
+            <li>Reading design blogs and tutorials</li>
+            <li>Brainstorming creative project ideas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+    <!-- Footer -->
+    <footer>
+      <div style="border-top: 1px solid #ffb6d5; padding-top: 20px;">
+        <p style="margin: 0; color:#ffb6d5;">© 2025 Nicole's Portfolio | Made with 💖 and lots of ☕</p>
+        <p style="margin: 5px 0 0 0; font-size: 0.9em; color: #ccc;">Designed & Built with HTML &amp; CSS</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
